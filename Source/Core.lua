@@ -21,4 +21,11 @@ function AddonTable.Ace3.Addon:OnEnable()
       end)
     end
   end)
+  -- register death
+  self:RegisterEvent("PLAYER_DEAD", function(event)
+    C_Timer.After(3, function()
+    -- wait a moment before playing the soundbite
+    PlaySoundFile("Interface\\AddOns\\".. AddonName .."\\Death\\FeverDream.ogg", AddonTable.Ace3.Addon.Database.global.channel)
+    end)
+  end)
 end
